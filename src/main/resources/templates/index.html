@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Frontend Page</title>
+    <script>
+        function redirectToLogin() {
+            window.location.href = "/login";
+        }
+    </script>
+    <script>
+        function redirectToRegistration() {
+            window.location.href = "/register";
+        }
+    </script>
+</head>
+<body>
+<h1>Welcome to the Frontend Page!</h1>
+<button onclick="redirectToLogin()">Login</button>
+<button onclick="redirectToRegistration()">Register</button>
+</body>
+</html>

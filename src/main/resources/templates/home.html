@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Frontend Page</title>
+    <script>
+        function redirectToController() {
+            window.location.href = "/logout";
+        }
+    </script>
+</head>
+<body>
+<h1>Welcome</h1>
+<p style="display: inline;margin-right: 10px;" th:if="${given_name}" th:text="${given_name}"></p>
+<p style="display: inline;margin-right: 10px;" th:if="${family_name}" th:text="${family_name}"></p>
+<p th:if="${email}" th:text="${email}"></p>
+<button onclick="redirectToController()">Logout</button>
+</body>
+</html>
