@@ -15,6 +15,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 @Controller
@@ -52,11 +53,12 @@ public class MainController {
             for (Cookie cookie : cookies) {
                 if ("kinde_token".equals(cookie.getName())) {
                     hasKindeTokenCookie = true;
-                    Object userDetails=this.kindeClientSDK.getUserDetails(request);
-                    model.addAttribute("given_name", ((Map) userDetails)!=null && ((Map) userDetails).containsKey("given_name") ? ((Map) userDetails).get("given_name") : null);
-                    model.addAttribute("family_name", ((Map) userDetails)!=null && ((Map) userDetails).containsKey("family_name") ? ((Map) userDetails).get("family_name") : null);
-                    model.addAttribute("email", ((Map) userDetails)!=null && ((Map) userDetails).containsKey("email") ? ((Map) userDetails).get("email") : null);
-
+                    if (!grantType.equals("client_credentials")) {
+                        Object userDetails = this.kindeClientSDK.getUserDetails(request);
+                        model.addAttribute("given_name", ((Map) userDetails) != null && ((Map) userDetails).containsKey("given_name") ? ((Map) userDetails).get("given_name") : null);
+                        model.addAttribute("family_name", ((Map) userDetails) != null && ((Map) userDetails).containsKey("family_name") ? ((Map) userDetails).get("family_name") : null);
+                        model.addAttribute("email", ((Map) userDetails) != null && ((Map) userDetails).containsKey("email") ? ((Map) userDetails).get("email") : null);
+                    }
 //                    Object token=this.kindeClientSDK.getToken(resp,request);
 //                    Object token2=this.kindeClientSDK.getBooleanFlag(request,"is_dark_mode");
 //                    Object token2=this.kindeClientSDK.getIntegerFlag(request,"df",false);
@@ -81,13 +83,25 @@ public class MainController {
     }
 
     @GetMapping("/login")
-    public RedirectView login(HttpServletResponse response){
-		return (RedirectView) kindeClientSDK.login(response);
+    public Object login(HttpServletResponse response){
+        Object resp=kindeClientSDK.login(response);
+        if (resp instanceof RedirectView){
+            return (RedirectView) resp;
+        }else if (resp instanceof LinkedHashMap){
+            return new RedirectView("/");
+        }
+        return resp;
     }
 
     @GetMapping("/register")
-    public RedirectView register(HttpServletResponse response){
-        return (RedirectView) kindeClientSDK.register(response);
+    public Object register(HttpServletResponse response){
+        Object resp=kindeClientSDK.register(response);
+        if (resp instanceof RedirectView){
+            return (RedirectView) resp;
+        }else if (resp instanceof LinkedHashMap){
+            return new RedirectView("/");
+        }
+        return resp;
     }
 
     @GetMapping("/api/auth/kinde_callback")
