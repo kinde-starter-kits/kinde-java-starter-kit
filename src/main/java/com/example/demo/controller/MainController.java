@@ -52,6 +52,7 @@ public class MainController {
         if (cookies != null) {
             for (Cookie cookie : cookies) {
                 if ("kinde_token".equals(cookie.getName())) {
+                    this.kindeClientSDK.isAuthenticated(request,resp);
                     hasKindeTokenCookie = true;
                     if (!grantType.equals("client_credentials")) {
                         Object userDetails = this.kindeClientSDK.getUserDetails(request);
