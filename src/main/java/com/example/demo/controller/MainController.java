@@ -52,14 +52,15 @@ public class MainController {
         if (cookies != null) {
             for (Cookie cookie : cookies) {
                 if ("kinde_token".equals(cookie.getName())) {
-                    this.kindeClientSDK.isAuthenticated(request,resp);
-                    hasKindeTokenCookie = true;
-                    if (!grantType.equals("client_credentials")) {
-                        Object userDetails = this.kindeClientSDK.getUserDetails(request);
-                        model.addAttribute("given_name", ((Map) userDetails) != null && ((Map) userDetails).containsKey("given_name") ? ((Map) userDetails).get("given_name") : null);
-                        model.addAttribute("family_name", ((Map) userDetails) != null && ((Map) userDetails).containsKey("family_name") ? ((Map) userDetails).get("family_name") : null);
-                        model.addAttribute("email", ((Map) userDetails) != null && ((Map) userDetails).containsKey("email") ? ((Map) userDetails).get("email") : null);
-                    }
+                    Boolean isAuthenticated = this.kindeClientSDK.isAuthenticated(request, resp);
+                    if (isAuthenticated) {
+                        hasKindeTokenCookie = true;
+                        if (!grantType.equals("client_credentials")) {
+                            Object userDetails = this.kindeClientSDK.getUserDetails(request);
+                            model.addAttribute("given_name", ((Map) userDetails) != null && ((Map) userDetails).containsKey("given_name") ? ((Map) userDetails).get("given_name") : null);
+                            model.addAttribute("family_name", ((Map) userDetails) != null && ((Map) userDetails).containsKey("family_name") ? ((Map) userDetails).get("family_name") : null);
+                            model.addAttribute("email", ((Map) userDetails) != null && ((Map) userDetails).containsKey("email") ? ((Map) userDetails).get("email") : null);
+                        }
 //                    Object token=this.kindeClientSDK.getToken(resp,request);
 //                    Object token2=this.kindeClientSDK.getBooleanFlag(request,"is_dark_mode");
 //                    Object token2=this.kindeClientSDK.getIntegerFlag(request,"df",false);
@@ -69,7 +70,8 @@ public class MainController {
 //                    Object organization=this.kindeClientSDK.getUserOrganizations(request);
 //                    Object feature_flags=this.kindeClientSDK.getFlag(request,"df");
 //                    Object feature_flags=this.kindeClientSDK.getFlag(request,"df","s");
-                    break;
+                        break;
+                    }
                 }
             }
         }
