@@ -60,6 +60,7 @@ public class MainController {
                             model.addAttribute("given_name", ((Map) userDetails) != null && ((Map) userDetails).containsKey("given_name") ? ((Map) userDetails).get("given_name") : null);
                             model.addAttribute("family_name", ((Map) userDetails) != null && ((Map) userDetails).containsKey("family_name") ? ((Map) userDetails).get("family_name") : null);
                             model.addAttribute("email", ((Map) userDetails) != null && ((Map) userDetails).containsKey("email") ? ((Map) userDetails).get("email") : null);
+                            model.addAttribute("picture", ((Map) userDetails) != null && ((Map) userDetails).containsKey("picture") ? ((Map) userDetails).get("picture") : null);
                         }
 //                    Object token=this.kindeClientSDK.getToken(resp,request);
 //                    Object token2=this.kindeClientSDK.getBooleanFlag(request,"is_dark_mode");
