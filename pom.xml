@@ -23,10 +23,9 @@
 		</dependency>
 
 		<dependency>
-			<groupId>org.openapitools</groupId>
-			<artifactId>openapi-spring</artifactId>
-			<version>1</version>
-			<scope>compile</scope>
+			<groupId>com.kinde</groupId>
+			<artifactId>java-sdk</artifactId>
+			<version>1.0.0</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
