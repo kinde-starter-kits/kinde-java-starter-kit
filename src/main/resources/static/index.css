@@ -2,15 +2,15 @@
   --g-color-black: #000;
   --g-color-white: #fff;
 
-  --g-color-grey-100: #f1f2f4;
-  --g-color-grey-600: #5d636f;
-  --g-color-grey-700: #434851;
-  --g-color-grey-900: #121417;
+  --g-color-grey-50: #f6f6f6;
+  --g-color-grey-600: #636363;
+  --g-color-grey-700: #4d4d4d;
+  --g-color-grey-900: #0f0f0f;
 
   --g-box-shadow: 0px 6px 12px rgba(18, 20, 23, 0.06),
     0px 15px 24px rgba(18, 20, 23, 0.07), 0px -4px 12px rgba(18, 20, 23, 0.05);
 
-  --g-font-family: "Helvetica";
+  --g-font-family: Helvetica, sans-serif;
 
   --g-font-size-x-small: 0.75rem; /* 12px */
   --g-font-size-small: 0.875rem; /* 14px */
@@ -47,9 +47,14 @@
 
 html,
 body {
-  padding: 0;
-  margin: 0;
   font-family: var(--g-font-family);
+}
+
+button {
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 }
 
 a {
@@ -180,7 +185,8 @@ a {
   text-underline-offset: 0.2rem;
 }
 
-.link:hover {
+.link:hover,
+.link:focus {
   background: #f1f2f4;
 }
 
@@ -205,7 +211,7 @@ a {
 
 .avatar {
   align-items: center;
-  background-color: var(--g-color-grey-100);
+  background-color: var(--g-color-grey-50);
   border-radius: var(--g-border-radius-large);
   display: flex;
   height: var(--g-spacing-3x-large);
