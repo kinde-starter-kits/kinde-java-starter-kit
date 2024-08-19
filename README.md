@@ -1,6 +1,6 @@
 # Kinde Starter Kit - Java
 
-This is a Java template with [KindeAuth](https://kinde.com/docs/developer-tools/java-sdk/).
+This project provides example of how to use the Kinde-Java-SDK.
 
 ## Register an account on Kinde
 
