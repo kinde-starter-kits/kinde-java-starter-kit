@@ -10,37 +10,51 @@ To get started set up an account on [Kinde](https://app.kinde.com/register).
 
 Clone this repo and install dependencies by running `mvn clean install`
 
-In `application.properties` file, set the following variables with the details from the Kinde `App Keys` page
+## Project Overview
+This project consists of the following sub projects
+- kinde-core-example: This is a unit test that provides an example of how to use the library directly.
+- kinde-j2ee-exmaple: An example J2EE project, using the Kinde-j2ee servlet.
+- kinde-management-example: This is a unit test that gives you an example of how to use the management API directly.
+- springboot-pkce-client-example: A standalone pkce springboot example.
 
-> kinde.host - The token host value
->
-> kinde.client.secret - The client secret
+## Configuring the kinde-core-example and kinde-management-example
+In `.env` file, set the following variables with the details from the Kinde `App Keys` page
 
-e.g
-
+```shell
+KINDE_DOMAIN=https://burntjam.kinde.com
+KINDE_CLIENT_ID=<replace>
+KINDE_CLIENT_SECRET=<replace>
+KINDE_REDIRECT_URI=http://localhost:8080/kinde-j2ee-app/login
+KINDE_GRANT_TYPE=CODE
+KINDE_SCOPES=openid
 ```
-kinde.host=https://<your_subdomain>.kinde.com
-kinde.client.secret=<your_client_secret>
+
+## Configurating the kinde-j2ee-example
+The kinde-j2ee-example is a war, and is deployed into a running application server such as tomcat. In order to configure it, you need to export the following variables
+
+```shell
+export KINDE_DOMAIN=https://burntjam.kinde.com
+export KINDE_CLIENT_ID=<replace>
+export KINDE_CLIENT_SECRET=<replace>
+export KINDE_REDIRECT_URI=http://localhost:8080/kinde-j2ee-app/login
+export KINDE_GRANT_TYPE=CODE
+export KINDE_SCOPES=openid
 ```
 
-## Set your Callback and Logout URLs
-
-Your user will be redirected to Kinde to authenticate. After they have logged in or registered they will be redirected back to your Java application.
-
-You need to specify in Kinde which url you would like your user to be redirected to in order to authenticate your app.
-
-On the App Keys page set ` Allowed callback URLs` to `http://localhost:8080/api/auth/kinde_callback`
-
-> Important! This is required for your users to successfully log in to your app.
-
-You will also need to set the url they will be redirected to upon logout. Set the `Allowed logout redirect URLs` to http://localhost:8080.
-
-## Start the app
-
-Run project and navigate to `http://localhost:8080`.
-
-Click on `Sign up` and register your first user for your business!
-
-## View users in Kinde
-
-If you navigate to the "Users" page within Kinde you will see your newly registered user there. 🚀
+## Configuring the springboot-pkce-client-example.
+This configuration is performed through the supplied application.yaml file.
+```yaml
+spring:
+  security:
+    oauth2:
+      client:
+        provider:
+          kinde:
+            issuer-uri: https://<replace>.kinde.com
+        registration: 
+          pkce: 
+            provider: kinde
+            client-id: <replace>
+            client-secret: <replace>
+            scope: openid,email
+```
