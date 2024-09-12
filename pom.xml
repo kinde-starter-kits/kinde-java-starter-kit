@@ -19,7 +19,9 @@
 		<module>kinde-core-example</module>
 		<module>kinde-management-example</module>
 		<module>kinde-j2ee-app</module>
+		<module>kinde-springboot-starter-example</module>
 		<module>springboot-pkce-client-example</module>
+		<module>springboot-thymeleaf-full-example</module>
 	</modules>
 	<build>
 		<plugins>

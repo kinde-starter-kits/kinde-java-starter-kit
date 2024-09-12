@@ -1,0 +1,5 @@
+com/kinde/spring/KindeClientApplication.class
+com/kinde/spring/controllers/RegistrationController.class
+com/kinde/spring/resolver/CustomAuthorizationRequestResolver.class
+com/kinde/spring/config/SecurityConfig.class
+com/kinde/spring/controllers/WelcomeController.class

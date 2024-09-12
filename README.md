@@ -16,6 +16,7 @@ This project consists of the following sub projects
 - kinde-j2ee-exmaple: An example J2EE project, using the Kinde-j2ee servlet.
 - kinde-management-example: This is a unit test that gives you an example of how to use the management API directly.
 - springboot-pkce-client-example: A standalone pkce springboot example.
+- springboot-thymeleaf: A complete spring boot standalone example.
 
 ## Configuring the kinde-core-example and kinde-management-example
 In `.env` file, set the following variables with the details from the Kinde `App Keys` page
