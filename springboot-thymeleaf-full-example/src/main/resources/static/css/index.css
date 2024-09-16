@@ -184,9 +184,16 @@ a {
   padding: var(--g-font-size-large) var(--g-font-size-x-large);
 }
 
+.btn-base {
+  width: 175px; /* Sets a fixed width for all buttons */
+  font-size: var(--g-font-size-base);
+  padding: var(--g-font-size-base) var(--g-spacing-base); /* Adjust padding for smaller buttons */
+}
+
 .btn-small {
+  width: 125px; /* Sets a fixed width for all buttons */
   font-size: var(--g-font-size-small);
-  padding: var(--g-font-size-small) var(--g-font-size-base);
+  padding: var(--g-font-size-small) var(--g-font-size-base) var(--g-spacing-small); /* Adjust padding for smaller buttons */
 }
 
 .hero {
@@ -204,13 +211,6 @@ a {
 
 .hero-tagline {
   margin-bottom: var(--g-spacing-3x-large);
-}
-
-.card {
-  background: var(--g-color-black);
-  border-radius: var(--g-border-radius-large);
-  box-shadow: var(--g-box-shadow);
-  color: var(--g-color-white);
 }
 
 .card {
@@ -375,4 +375,22 @@ a {
 .role-buttons li {
     display: flex;
     justify-content: center; /* Center the buttons */
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--g-spacing-base); /* Adds space between the button items */
+    align-items: flex-start; /* Align items to the left */
+}
+
+.button-item {
+    display: flex;
+    align-items: center;
+    gap: var(--g-spacing-small); /* Space between button and text */
+}
+
+.button-item p {
+    font-size: var(--g-font-size-small); /* Smaller text next to the button */
+    margin: 0; /* Remove margin around the text */
 }

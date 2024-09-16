@@ -1,13 +1,22 @@
 package com.kinde.oauth.controller;
 
+import com.kinde.authorization.AuthorizationUrl;
 import com.kinde.oauth.service.KindeService;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import java.net.URI;
 
 /**
  * Controller for handling Kinde OAuth-related endpoints and rendering views
@@ -82,4 +91,60 @@ public class KindeController {
     public String writeEndpoint() {
         return "write";
     }
+
+    /**
+     * Handles requests to the register endpoint, restricted to users with the 'admin' role.
+     *
+     * @return the url to redirect to for user registration
+     */
+    @GetMapping("/register")
+    @PreAuthorize("hasRole('admin')")
+    public ResponseEntity<Void> register() {
+        AuthorizationUrl authorizationUrl = kindeService.register();
+        URI redirectUri = URI.create(authorizationUrl.getUrl().toExternalForm());
+        return ResponseEntity.status(HttpStatus.FOUND)
+                .location(redirectUri)
+                .build();
+    }
+
+    /**
+     * Handles requests to the register endpoint, restricted to users with the 'admin' role.
+     *
+     * @return the url to redirect to for user registration
+     */
+    @GetMapping("/create/org/{orgName}")
+    @PreAuthorize("hasRole('admin')")
+    public ResponseEntity<Void> createOrg(@PathVariable("orgName") String orgName) {
+        AuthorizationUrl authorizationUrl = kindeService.createOrg(orgName);
+        URI redirectUri = URI.create(authorizationUrl.getUrl().toExternalForm());
+        return ResponseEntity.status(HttpStatus.FOUND)
+                .location(redirectUri)
+                .build();
+    }
+
+    /**
+     * Handles logout requests to the Kinde service.
+     *
+     * @return a String representing page to redirect to
+     */
+    @GetMapping("/signout")
+    public ResponseEntity<Void> signout(HttpServletRequest request, HttpServletResponse response) {
+        AuthorizationUrl authorizationUrl = kindeService.signout();
+
+        SecurityContextLogoutHandler logoutHandler = new SecurityContextLogoutHandler();
+        logoutHandler.logout(request, response, null);
+
+        if (authorizationUrl != null) {
+            URI redirectUri = URI.create(authorizationUrl.getUrl().toExternalForm());
+            return ResponseEntity.status(HttpStatus.FOUND)
+                    .location(redirectUri)
+                    .build();
+        } else {
+            URI errorPageUri = URI.create("/error");
+            return ResponseEntity.status(HttpStatus.FOUND)
+                    .location(errorPageUri)
+                    .build();
+        }
+    }
+
 }

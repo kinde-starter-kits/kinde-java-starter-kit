@@ -1,4 +1,4 @@
-package com.kinde.oauth.config;
+package com.kinde.oauth.controller;
 
 import org.springframework.boot.web.servlet.error.ErrorController;
 import org.springframework.stereotype.Controller;

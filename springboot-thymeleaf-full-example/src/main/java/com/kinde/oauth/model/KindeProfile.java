@@ -1,5 +1,6 @@
 package com.kinde.oauth.model;
 
+import com.kinde.user.UserInfo;
 import lombok.Builder;
 import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
@@ -13,5 +14,5 @@ public class KindeProfile {
     private String accessToken;
     private String fullName;
     private Set<GrantedAuthority> roles;
-    private String userProfile;
+    private UserInfo userInfo;
 }
