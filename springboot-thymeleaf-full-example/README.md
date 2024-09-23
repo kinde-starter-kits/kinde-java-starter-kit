@@ -54,6 +54,33 @@ The `pom.xml` includes the following essential dependencies:
 - `spring-webflux`: Required for the reactive WebClient used in OAuth2 requests.
 - `kinde-core`: Kinde specific SDK for interacting with their API.
 
+### Environmental Configuration
+
+#### Environmental configuration
+Configuring via the operating system
+
+```shell
+export KINDE_DOMAIN=https://<replace>.kinde.com
+export KINDE_CLIENT_ID=<replace>
+export KINDE_CLIENT_SECRET=<replace>
+export KINDE_REDIRECT_URI=http://localhost:8080/kinde-j2ee-app/login
+export KINDE_GRANT_TYPE=CODE
+export KINDE_SCOPES=openid
+export KINDE_PREFIX=<replace>
+```
+
+#### '.env' file configuration
+'.env' file configuration
+```shell
+KINDE_DOMAIN=https://<replace>.kinde.com
+KINDE_CLIENT_ID=<replace>
+KINDE_CLIENT_SECRET=<replace>
+KINDE_REDIRECT_URI=http://localhost:8080/kinde-j2ee-app/login
+KINDE_GRANT_TYPE=CODE
+KINDE_SCOPES=openid
+KINDE_PREFIX=<replace>
+```
+
 ### Security Configuration
 
 The security is configured in `SecurityConfig.java`. Key configurations include:

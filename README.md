@@ -34,7 +34,7 @@ KINDE_SCOPES=openid
 The kinde-j2ee-example is a war, and is deployed into a running application server such as tomcat. To configure it, you need to export the following variables
 
 ```shell
-export KINDE_DOMAIN=https://burntjam.kinde.com
+export KINDE_DOMAIN=https://<replace>.kinde.com
 export KINDE_CLIENT_ID=<replace>
 export KINDE_CLIENT_SECRET=<replace>
 export KINDE_REDIRECT_URI=http://localhost:8080/kinde-j2ee-app/login
