@@ -30,7 +30,7 @@ public class SecurityConfig {
 
     /**
      * Configures the security filter chain, setting up CORS, authorization rules,
-     * OAuth2 resource server, and OAuth2 login with OIDC user service.
+     * and OAuth2 login with OIDC user service.
      * <p>
      * Note: If you wish to use configuration-based security instead of method-based security,
      * you can uncomment the relevant lines and specify roles or permissions directly here.
