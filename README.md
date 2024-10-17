@@ -7,7 +7,7 @@ This repository contains an extended version of the original Kinde Java starter.
 ### 1. [kinde-core-example](./kinde-core-example)
 A unit test example showcasing how to access Kinde APIs directly. This project focuses on the basics of interacting with Kinde's core APIs, providing a minimal example to get started quickly.
 
-### 2. [kinde-j2ee-example](./kinde-j2ee-example)
+### 2. [kinde-j2ee-app](./kinde-j2ee-app)
 An example project demonstrating how to integrate Kinde with a J2EE application. This requires the installation of Tomcat or a similar J2EE application server to run. It is ideal for those working in legacy environments that require a J2EE setup.
 
 ### 3. [kinde-management-example](./kinde-management-example)
