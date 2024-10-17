@@ -54,14 +54,14 @@ Each sub-project may have its own set of specific dependencies and requirements,
 
 - For **Spring Boot** examples, you can run them using the following command:
   ```sh
-  ./mvnw spring-boot:run
+  mvn spring-boot:run
   ```
 
 - For **J2EE** examples, ensure you have deployed the WAR file to a J2EE application server like Apache Tomcat.
 
 - For **Unit Test** examples (`[kinde-core-example](./kinde-core-example)` and `[kinde-management-example](./kinde-management-example)`), simply run the tests using your preferred IDE or through Maven/Gradle:
   ```sh
-  ./mvnw test
+  mvn test
   ```
 
 ## Contributing
