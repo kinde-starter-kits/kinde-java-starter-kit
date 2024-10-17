@@ -3,7 +3,7 @@
 This repository contains the re-developed version of the original Kinde Java starter, now extended to include multiple sub-projects, each focusing on different aspects of integration and usage of Kinde services. The new structure consists of five sub-projects:
 
 1. **[kinde-core-example](./kinde-core-example)**
-2. **[kinde-j2ee-example](./kinde-j2ee-example)**
+2. **[kinde-j2ee-example](./kinde-j2ee-app)**
 3. **[kinde-management-example](./kinde-management-example)**
 4. **[springboot-pkce-client-example](./springboot-pkce-client-example)**
 5. **[springboot-thymeleaf-full-example](./springboot-thymeleaf-full-example)**
@@ -14,7 +14,7 @@ This repository contains the re-developed version of the original Kinde Java sta
 
 The `[kinde-core-example](./kinde-core-example)` project is a unit test example that demonstrates how to access Kinde's APIs programmatically. This example is ideal for those who want to see how the core functionalities of Kinde can be accessed and tested through Java-based unit tests.
 
-### 2. `[kinde-j2ee-example](./kinde-j2ee-example)`
+### 2. `[kinde-j2ee-example](./kinde-j2ee-app)`
 
 The `[kinde-j2ee-example](./kinde-j2ee-example)` is a Java 2 Enterprise Edition (J2EE) example that requires the installation of a J2EE application server such as Apache Tomcat. This project demonstrates how to integrate Kinde into a traditional J2EE web application, showcasing integration practices with the J2EE ecosystem.
 
