@@ -2,33 +2,33 @@
 
 This repository contains the re-developed version of the original Kinde Java starter, now extended to include multiple sub-projects, each focusing on different aspects of integration and usage of Kinde services. The new structure consists of five sub-projects:
 
-1. **kinde-core-example**
-2. **kinde-j2ee-example**
-3. **kinde-management-example**
-4. **springboot-pkce-client-example**
-5. **springboot-thymeleaf-full-example**
+1. **[kinde-core-example](./kinde-core-example)**
+2. **[kinde-j2ee-example](./kinde-j2ee-example)**
+3. **[kinde-management-example](./kinde-management-example)**
+4. **[springboot-pkce-client-example](./springboot-pkce-client-example)**
+5. **[springboot-thymeleaf-full-example](./springboot-thymeleaf-full-example)**
 
 ## Overview of Sub-Projects
 
-### 1. `kinde-core-example`
+### 1. `[kinde-core-example](./kinde-core-example)`
 
-The `kinde-core-example` project is a unit test example that demonstrates how to access Kinde's APIs programmatically. This example is ideal for those who want to see how the core functionalities of Kinde can be accessed and tested through Java-based unit tests.
+The `[kinde-core-example](./kinde-core-example)` project is a unit test example that demonstrates how to access Kinde's APIs programmatically. This example is ideal for those who want to see how the core functionalities of Kinde can be accessed and tested through Java-based unit tests.
 
-### 2. `kinde-j2ee-example`
+### 2. `[kinde-j2ee-example](./kinde-j2ee-example)`
 
-The `kinde-j2ee-example` is a Java 2 Enterprise Edition (J2EE) example that requires the installation of a J2EE application server such as Apache Tomcat. This project demonstrates how to integrate Kinde into a traditional J2EE web application, showcasing integration practices with the J2EE ecosystem.
+The `[kinde-j2ee-example](./kinde-j2ee-example)` is a Java 2 Enterprise Edition (J2EE) example that requires the installation of a J2EE application server such as Apache Tomcat. This project demonstrates how to integrate Kinde into a traditional J2EE web application, showcasing integration practices with the J2EE ecosystem.
 
-### 3. `kinde-management-example`
+### 3. `[kinde-management-example](./kinde-management-example)`
 
-The `kinde-management-example` is another unit test-based example, similar to `kinde-core-example`, but focuses on utilizing Kinde's management APIs. This project is useful for users interested in interacting with the management layer of Kinde, including administrative features.
+The `[kinde-management-example](./kinde-management-example)` is another unit test-based example, similar to `[kinde-core-example](./kinde-core-example)`, but focuses on utilizing Kinde's management APIs. This project is useful for users interested in interacting with the management layer of Kinde, including administrative features.
 
-### 4. `springboot-pkce-client-example`
+### 4. `[springboot-pkce-client-example](./springboot-pkce-client-example)`
 
-The `springboot-pkce-client-example` is a standalone Spring Boot application that showcases the usage of Proof Key for Code Exchange (PKCE) in an OAuth flow. This example does **not** require the use of the Kinde libraries and instead relies solely on the Spring framework's OAuth libraries. It is perfect for those looking to implement PKCE-based authentication without any Kinde-specific libraries.
+The `[springboot-pkce-client-example](./springboot-pkce-client-example)` is a standalone Spring Boot application that showcases the usage of Proof Key for Code Exchange (PKCE) in an OAuth flow. This example does **not** require the use of the Kinde libraries and instead relies solely on the Spring framework's OAuth libraries. It is perfect for those looking to implement PKCE-based authentication without any Kinde-specific libraries.
 
-### 5. `springboot-thymeleaf-full-example`
+### 5. `[springboot-thymeleaf-full-example](./springboot-thymeleaf-full-example)`
 
-The `springboot-thymeleaf-full-example` is a comprehensive Spring Boot application that expands on the `springboot-pkce-client-example`. It includes a more detailed implementation, making use of the Thymeleaf templating engine for rendering dynamic content. This example provides a full-featured application setup, demonstrating various use cases of OAuth authentication, token handling, and integration with Kinde services.
+The `[springboot-thymeleaf-full-example](./springboot-thymeleaf-full-example)` is a comprehensive Spring Boot application that expands on the `[springboot-pkce-client-example](./springboot-pkce-client-example)`. It includes a more detailed implementation, making use of the Thymeleaf templating engine for rendering dynamic content. This example provides a full-featured application setup, demonstrating various use cases of OAuth authentication, token handling, and integration with Kinde services.
 
 ## Getting Started
 
@@ -44,8 +44,8 @@ To get started with any of these sub-projects:
 
 ## Requirements
 
-- **JDK 17 or higher**
-- **Maven** for dependency management
+- **JDK 11 or higher**
+- **Maven or Gradle** for dependency management
 - **Spring Boot**, **Apache Tomcat**, or other application servers as needed
 
 Each sub-project may have its own set of specific dependencies and requirements, which are detailed in their respective build files (`pom.xml` or `build.gradle`).
@@ -59,7 +59,7 @@ Each sub-project may have its own set of specific dependencies and requirements,
 
 - For **J2EE** examples, ensure you have deployed the WAR file to a J2EE application server like Apache Tomcat.
 
-- For **Unit Test** examples (`kinde-core-example` and `kinde-management-example`), simply run the tests using your preferred IDE or through Maven/Gradle:
+- For **Unit Test** examples (`[kinde-core-example](./kinde-core-example)` and `[kinde-management-example](./kinde-management-example)`), simply run the tests using your preferred IDE or through Maven/Gradle:
   ```sh
   ./mvnw test
   ```
