@@ -1,2 +1,7 @@
 * @kinde-starter-kits/giants-kinde
 
+pom.xml @kinde-starter-kits/sdk-engineers
+**/pom.xml @kinde-starter-kits/sdk-engineers
+.mvn/wrapper/** @kinde-starter-kits/sdk-engineers
+mvnw @kinde-starter-kits/sdk-engineers
+mvnw.cmd @kinde-starter-kits/sdk-engineers
