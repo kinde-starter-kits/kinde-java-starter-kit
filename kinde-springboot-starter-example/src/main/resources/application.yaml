@@ -1,0 +1,7 @@
+kinde:
+  oauth2:
+    domain: https://<business-name>.kinde.com
+    client-id: <client-id>
+    client-secret: <client-secret>
+    scopes: openid,email,profile
+

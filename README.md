@@ -1,46 +1,45 @@
-# Kinde Starter Kit - Java
+# Kinde Java Starter - Extended Version
 
-This is a Java template with [KindeAuth](https://kinde.com/docs/developer-tools/java-sdk/).
+This repository contains an extended version of the original Kinde Java starter. The updated version has been restructured into several sub-projects, each designed to demonstrate different use cases and configurations for working with Kinde. Below you'll find descriptions and links to each sub-project.
 
-## Register an account on Kinde
+## Sub-Projects Overview
 
-To get started set up an account on [Kinde](https://app.kinde.com/register).
+### 1. [kinde-core-example](./kinde-core-example)
+A unit test example showcasing how to access Kinde APIs directly. This project focuses on the basics of interacting with Kinde's core APIs, providing a minimal example to get started quickly.
 
-## Setup your local environment
+### 2. [kinde-j2ee-app](./kinde-j2ee-app)
+An example project demonstrating how to integrate Kinde with a J2EE application. This requires the installation of Tomcat or a similar J2EE application server to run. It is ideal for those working in legacy environments that require a J2EE setup.
 
-Clone this repo and install dependencies by running `mvn clean install`
+### 3. [kinde-management-example](./kinde-management-example)
+A unit test example similar to `kinde-core-example`, but focusing specifically on Kinde's management APIs. It is designed to demonstrate how to use the management endpoints for administrative tasks.
 
-In `application.properties` file, set the following variables with the details from the Kinde `App Keys` page
+### 4. [kinde-springboot-starter-example](./kinde-springboot-starter-example)
+Built using the Kinde Spring Boot starter, this example shows how to use the Kinde Spring Boot library to auto-wire and auto-configure a Spring Boot project for authentication against Kinde. It provides a simple and efficient way to integrate Kinde with your Spring Boot application.
 
-> kinde.host - The token host value
->
-> kinde.client.secret - The client secret
+### 5. [springboot-pkce-client-example](./springboot-pkce-client-example)
+A Spring Boot standalone example that does not rely on Kinde libraries. This example is only dependent on the Spring framework's OAuth libraries and uses a PKCE token for authentication. It is a good starting point for those who prefer using Spring's native libraries for OAuth.
 
-e.g
+### 6. [springboot-thymeleaf-full-example](./springboot-thymeleaf-full-example)
+A comprehensive Spring Boot example that includes Thymeleaf. Similar to `springboot-pkce-client-example`, but with more detailed integration, including frontend interactions. This example is ideal for developers looking for a complete implementation of a web application with Kinde authentication.
 
+## Getting Started
+
+To get started with any of the examples, clone this repository and navigate to the respective sub-project directory. Each project contains its own `README.md` file with instructions on how to build and run the example.
+
+```sh
+# Clone the repository
+git clone https://github.com/yourusername/kinde-java-starter.git
+
+# Navigate to a specific example
+git checkout kinde-core-example
 ```
-kinde.host=https://<your_subdomain>.kinde.com
-kinde.client.secret=<your_client_secret>
-```
 
-## Set your Callback and Logout URLs
+Follow the instructions in each sub-project to understand the setup, dependencies, and running procedures.
 
-Your user will be redirected to Kinde to authenticate. After they have logged in or registered they will be redirected back to your Java application.
+## Contributing
 
-You need to specify in Kinde which url you would like your user to be redirected to in order to authenticate your app.
+Feel free to open issues and contribute to this project by adding new examples or enhancing the existing ones. Contributions are always welcome!
 
-On the App Keys page set ` Allowed callback URLs` to `http://localhost:8080/api/auth/kinde_callback`
+## License
 
-> Important! This is required for your users to successfully log in to your app.
-
-You will also need to set the url they will be redirected to upon logout. Set the `Allowed logout redirect URLs` to http://localhost:8080.
-
-## Start the app
-
-Run project and navigate to `http://localhost:8080`.
-
-Click on `Sign up` and register your first user for your business!
-
-## View users in Kinde
-
-If you navigate to the "Users" page within Kinde you will see your newly registered user there. 🚀
+This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
